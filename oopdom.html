@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Car DOM Example</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #log { border: 1px solid #ccc; padding: 10px; min-height: 80px; white-space: pre-wrap; }
+    .controls { margin-top: 10px; }
+    button { margin-right: 8px; }
+  </style>
+</head>
+<body>
+  <h2>Car DOM Example</h2>
+  <div id="log"></div>
+
+  <div class="controls">
+    <button id="create1">Create Car 1</button>
+    <button id="create2">Create Car 2</button>
+    <button id="drive">Drive (name)</button>
+    <button id="stop">Stop (name)</button>
+    <button id="hello">Say Hello (static)</button>
+  </div>
+
+  <script>
+    // Helper to append messages to the log div
+    const logDiv = document.getElementById('log');
+    function log(message) {
+      const p = document.createElement('div');
+      p.textContent = message;
+      logDiv.appendChild(p);
+      // scroll to bottom if many messages
+      logDiv.scrollTop = logDiv.scrollHeight;
+    }
+
+    class Car {
+      constructor(id = '') {
+        this.id = id;
+        log(`This is constructor method ${id}`);
+      }
+
+      drive(name) {
+        this.name = name;
+        log(`${name} drives the car ${this.id}`);
+      }
+
+      stop(name) {
+        log(`${name} stops the car ${this.id}`);
+      }
+
+      static hello() {
+        log('Hello everyone');
+      }
+    }
+
+    // keep references to two car objects (initially null)
+    let obj = null;
+    let obj2 = null;
+
+    // Buttons behavior
+    document.getElementById('create1').addEventListener('click', () => {
+      if (!obj) {
+        obj = new Car('#1');
+      } else {
+        log('Car 1 already created');
+      }
+    });
+
+    document.getElementById('create2').addEventListener('click', () => {
+      if (!obj2) {
+        obj2 = new Car('#2');
+      } else {
+        log('Car 2 already created');
+      }
+    });
+
+    document.getElementById('drive').addEventListener('click', () => {
+      // choose which object to use — prefer obj, fallback to obj2
+      const name = prompt('Enter driver name (e.g. umar):', 'umar');
+      if (!name) return;
+      if (obj) {
+        obj.drive(name);
+      } else if (obj2) {
+        obj2.drive(name);
+      } else {
+        log('No car exists yet — create one first.');
+      }
+    });
+
+    document.getElementById('stop').addEventListener('click', () => {
+      const name = prompt('Enter name to stop (e.g. ali):', 'ali');
+      if (!name) return;
+      // call stop on both cars (example)
+      if (obj) obj.stop(name);
+      if (obj2) obj2.stop(name);
+      if (!obj && !obj2) log('No car exists yet — create one first.');
+    });
+
+    document.getElementById('hello').addEventListener('click', () => {
+      Car.hello();
+    });
+
+    // --- Example automatic calls like your original code ---
+    // If you want these to run immediately on page load (like your earlier script),
+    // uncomment the lines below:
+    //
+    // obj = new Car('#A');
+    // obj2 = new Car('#B');
+    // obj.drive('umar');
+    // obj.stop('ali');
+    // obj2.stop('usman');
+    // Car.hello();
+  </script>
+</body>
+</html>

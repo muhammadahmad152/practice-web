@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OOP JavaScript</title>
 </head>
+
 <body>
 
-<script>
-    class Car {
-        constructor(){
-            document.write("This is contructor method <br>")
+    <script>
+        // Oop stands for Object Oriented Programming. It is a programming paradigm based on the concept of "objects", which can contain data and code: data in the form of fields (often known as attributes or properties), and code, in the form of procedures (often known as methods).
+
+        class Car {
+            constructor() {
+                document.write("This is constructor method <br>");
+            }
+
+            drive(name) {
+                this.name = name;
+                document.write(`${name} drives the car <br>`);
+            }
+
+            stop(name) {
+                document.write(`${name} stops the car <br>`);
+            }
+
+            static hello() {
+                document.write("Hello everyone <br>");
+            }
         }
-    drive (){
-        document.write("This is drive method <br>")
-    }
-    stop(){
+
+        let obj = new Car();
+        let obj2 = new Car();
+
+        obj.drive("umar");
+        obj.stop("ali");
+        obj2.stop("usman");
+
+        Car.hello();
         
-    }
-    }
-    let obj = new Car()
+    </script>
 
-    obj.drive()
-    
-   
-</script>
 
-    
+
 </body>
+
 </html>
