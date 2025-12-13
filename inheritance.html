@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance Oop</title>
+</head>
+
+<body>
+
+
+    <!-- <script src="./app.js"></script> -->
+
+    <script>
+        // Pascal convention 
+        // single inheritance
+
+        class A {
+            constructor(a, b) {
+                this.num1 = a;  // Fixed variable name
+                this.num2 = b;  // Fixed the assignment
+            }
+
+            start() {
+                document.write(`This is start method from parent class ${this.num1 + this.num2}<br>`);  // Fixed typos
+            }
+
+            stop() {
+                document.write(`This is stop method from parent class ${this.num1 * this.num2}<br>`);
+            }
+        }   
+
+        class B extends A {
+            // Class B inherits methods from A without needing to add anything
+        }
+
+        let obj = new B(20, 30);
+        obj.start();  // This will use the start method from class A
+        obj.stop();   // This will use the stop method from class A
+
+        class C extends A {
+            // Class C inherits methods from A too
+        }
+
+        let obj1 = new C(10, 20);
+
+        obj1.start();  // This will use the start method from class A
+        // obj1.stop();   // Uncomment to call stop method from A if needed
+
+        // dry: do not repeat yourself (no need to repeat start() and stop() in subclasses unless behavior changes)
+
+    </script>
+
+</body>
+
+</html>
