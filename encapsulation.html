@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encapsulation</title>
+</head>
+
+<body>
+
+    <script>
+        // Abstraction JavaScript 
+
+        class Student {
+            #year; // Private field for year
+
+            constructor(name, age, address, year) {
+                this.name = name;
+                this.age = age;
+                this.address = address;
+                this.#year = year; // Initializing private year
+            }
+
+            // Method to show exam schedule
+            exam() {
+                document.write(`${this.name}, your exam has been scheduled on 25th of January <br>`);
+            }
+
+            // Method to show age
+            std_add() {
+                document.write(`Your age is: ${this.age} <br>`);
+            }
+
+            // Method to show age
+            std_age() {
+                document.write(`Your age is: ${this.age} <br>`);
+            }
+
+            // Method to show year of passing (private field)
+            std_year() {
+                document.write(`Your passing year is: ${this.#year} <br>`);
+            }
+        }
+
+        // Creating instances with all parameters
+        let obj1 = new Student('Muavia', 20, 'Karachi', 2025);
+        let obj2 = new Student('Saad', 22, 'Lahore', 2024);
+
+        // Accessing methods
+        obj1.exam();
+        obj1.std_age();
+        obj1.std_add();
+        obj1.std_year();
+
+        obj2.exam();
+        obj2.std_age();
+        obj2.std_add();
+        obj2.std_year();
+        
+    </script>
+
+</body>
+
+</html>
