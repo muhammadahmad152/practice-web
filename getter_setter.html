@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter_Setter</title>
+</head>
+
+<body>
+
+    <!-- https://quizapp.byethost18.com/ -->
+    <!-- Computer: Agar aap PC ya laptop pe likh rahe hain, toh Alt + 0176 (numpad pe) press karke ° symbol la sakte hain, phir C type karna hoga. -->
+
+    <script>
+        class Temperature {
+            #celsius;
+
+            constructor(value) {
+                this.#celsius = value;
+            }
+
+            // getter
+            get mytemp() {
+                return this.#celsius;
+            }
+
+            // setter
+            set mytemp(value) {
+                if (value > -70 && value < 20) {
+                    this.#celsius = value;
+                    document.write(`${this.#celsius} °C — This is setter method<br>`);
+                } else {
+                    document.write(`Invalid value<br>`);
+                }
+            }
+        }
+
+        let obj = new Temperature(50);
+
+        // getter
+        document.write(obj.mytemp + " °C — This is getter method<br>");
+
+        // setter
+        obj.mytemp = -45;
+
+    </script>                              
+
+</body>
+
+</html>
