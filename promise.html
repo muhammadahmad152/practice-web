@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    
+
+    <script>
+        console.log('line1')
+
+setTimeout(function(){
+
+    console.log('line2')
+}, 3000)
+
+console.log('line3')
+
+// Promises:
+
+let p = new Promise(function(resolve, reject){
+
+    let num = 5 + 0
+    if(num == 5){
+        resolve('success')
+    }
+    else{
+        reject('rejected')
+    }
+})
+p.then(function(m){
+    document.getElementById('para').innerHTML = m
+})
+p.catch((msg)=>{
+    document.write(msg)
+})
+    </script>
+</body>
+</html>
