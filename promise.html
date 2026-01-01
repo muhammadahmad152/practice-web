@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Promise Example</title>
 </head>
+
 <body>
-    
+
+    <p id="para"></p>
 
     <script>
         console.log('line1')
 
-setTimeout(function(){
+        setTimeout(function () {
+            console.log('line2')
+        }, 3000)
 
-    console.log('line2')
-}, 3000)
+        console.log('line3')
 
-console.log('line3')
+        // Promise
+        let p = new Promise(function (resolve, reject) {
+            let num = 5 + 0
+            if (num === 5) {
+                resolve('success')
+            } else {
+                reject('rejected')
+            }
+        })
 
-// Promises:
+        p.then(function (m) {
+            document.getElementById('para').innerHTML = m
+        })
 
-let p = new Promise(function(resolve, reject){
-
-    let num = 5 + 0
-    if(num == 5){
-        resolve('success')
-    }
-    else{
-        reject('rejected')
-    }
-})
-p.then(function(m){
-    document.getElementById('para').innerHTML = m
-})
-p.catch((msg)=>{
-    document.write(msg)
-})
+        p.catch(function (msg) {
+            console.log(msg)
+        })
+        
     </script>
+
 </body>
+
 </html>

@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <p id="status"></p>
     <p id="result"></p>
     <script>
         let status = document.getElementById("status")
-         let result = document.getElementById("result")
+        let result = document.getElementById("result")
 
-         status.innerText = 'Order is pending......'
-         let orderFood = new Promise((resolve, reject)=>{
+        status.innerText = 'Order is pending......'
+        let orderFood = new Promise((resolve, reject) => {
 
             let food = true;
-            setTimeout(function(){
-                if(food){
+            setTimeout(function () {
+                if (food) {
                     resolve('food is ready')
                 }
-                else{
+                else {
                     reject('food is not ready')
                 }
             }, 3000)
-         })
-         orderFood.then((msg)=>{
+        })
+        orderFood.then((msg) => {
             status.innerText = msg
             result.innerText = 'Enjoy your meal!'
-         }).catch((error)=>{
+        }).catch((error) => {
             status.innerText = error
-         })
+        })
+        function myApp() {
+            document.write('Hello m')
+        }
+        
     </script>
 </body>
+
 </html>
