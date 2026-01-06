@@ -6,7 +6,7 @@ function add(a, b,...x){
         document.write(value,"<br>")
     }
 }
-add(10, 20, 30, 40, 50)
+add(10, 20, 35, 49, 51) 
 
 // default parameters 
 
